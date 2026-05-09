@@ -4,7 +4,7 @@ on:
       - cron: '15 2-18 * * *'
           - cron: '45 9-14 * * *'
             workflow_dispatch:
-            env:
+          env:
               TZ: Asia/Tokyo
               jobs:
                 run-updater:
