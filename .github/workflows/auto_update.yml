@@ -1,4 +1,0 @@
-name: CityHeaven Auto Update
-on:
-  workflow_dispatch: {}
-  
