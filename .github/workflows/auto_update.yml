@@ -1,9 +1,9 @@
 name: CityHeaven Auto Update
 on:
-  schedule:
-      - cron: '15 2-18 * * *'
-          - cron: '45 9-14 * * *'
-            workflow_dispatch: {}
+  workflow_dispatch: {}
+    schedule:
+        - cron: '15 2-18 * * *'
+            - cron: '45 9-14 * * *'
             env:
               TZ: Asia/Tokyo
               jobs:
