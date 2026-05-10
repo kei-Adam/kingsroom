@@ -1,29 +1,24 @@
-name: CityHeaven Auto Update
+name: Auto Update
 on:
   workflow_dispatch:
-    schedule:
-        - cron: '15 2-18 * * *'
-            - cron: '45 9-14 * * *'
-            env:
-              TZ: Asia/Tokyo
-              jobs:
-                run-updater:
-                    runs-on: ubuntu-latest
-                        steps:
-                              - uses: actions/checkout@v4
-                                    - uses: actions/setup-python@v5
-                                            with:
-                                                      python-version: '3.10'
-                                                            - name: Install dependencies
-                                                                    run: |
-                                                                              pip install -r requirements.txt
-                                                                                        playwright install chromium
-                                                                                                  playwright install-deps chromium
-                                                                                                        - name: Run Auto Update
-                                                                                                                run: python cityheaven_updater.py
-                                                                                                                        env:
-                                                                                                                                  CITYHEAVEN_ID: ${{ secrets.CITYHEAVEN_ID }}
-                                                                                                                                            CITYHEAVEN_PW: ${{ secrets.CITYHEAVEN_PW }}
-                                                                                                                                                      LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
-                                                                                                                                                                LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
-                                                                                                                                                                
+  jobs:
+    run-updater:
+        runs-on: ubuntu-latest
+            steps:
+                  - uses: actions/checkout@v4
+                        - uses: actions/setup-python@v5
+                                with:
+                                          python-version: '3.10'
+                                                - name: Install dependencies
+                                                        run: |
+                                                                  pip install -r requirements.txt
+                                                                            playwright install chromium
+                                                                                      playwright install-deps chromium
+                                                                                            - name: Run
+                                                                                                    run: python cityheaven_updater.py
+                                                                                                            env:
+                                                                                                                      CITYHEAVEN_ID: ${{ secrets.CITYHEAVEN_ID }}
+                                                                                                                                CITYHEAVEN_PW: ${{ secrets.CITYHEAVEN_PW }}
+                                                                                                                                          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+                                                                                                                                                    LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+                                                                                                                                                    
