@@ -1,17 +1,10 @@
-name: Auto Update
+name: T
 on: [workflow_dispatch]
 jobs:
-  update:
+  u:
       runs-on: ubuntu-latest
           steps:
                 - uses: actions/checkout@v4
-                      - uses: actions/setup-python@v5
-                              with: { python-version: '3.10' }
-                                    - run: pip install -r requirements.txt && playwright install chromium && playwright install-deps chromium
-                                          - run: python cityheaven_updater.py
-                                                  env:
-                                                            CITYHEAVEN_ID: ${{ secrets.CITYHEAVEN_ID }}
-                                                                      CITYHEAVEN_PW: ${{ secrets.CITYHEAVEN_PW }}
-                                                                                LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
-                                                                                          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
-                                                                                          
+                      - run: python cityheaven_updater.py
+                              env: { CITYHEAVEN_ID: "${{ secrets.CITYHEAVEN_ID }}", CITYHEAVEN_PW: "${{ secrets.CITYHEAVEN_PW }}", LINE_CHANNEL_ACCESS_TOKEN: "${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}", LINE_USER_ID: "${{ secrets.LINE_USER_ID }}" }
+                              
