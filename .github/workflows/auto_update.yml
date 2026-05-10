@@ -1,14 +1,11 @@
 name: CityHeaven Auto Update
-
 on:
   workflow_dispatch:
     schedule:
         - cron: '15 2-18 * * *'
             - cron: '45 9-14 * * *'
-
             env:
               TZ: Asia/Tokyo
-
               jobs:
                 run-updater:
                     runs-on: ubuntu-latest
